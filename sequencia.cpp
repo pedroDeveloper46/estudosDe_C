@@ -1,8 +1,8 @@
 /*
-	Name: Sequencia de números
+	Name: Sequencia de nÃºmeros
 	Copyright: 
 	Author: Pedro Victor
-	Date: 11/03/22 21:44
+	Date: 11/03/22 17:02
 	Description: 
 */
 
@@ -16,7 +16,7 @@ int main(){
 	
 	setlocale(LC_ALL,"Portuguese");
 	
-	printf("PROGRAMA PARA CALCULAR SEQUÊNCIA \n");
+	printf("PROGRAMA PARA CALCULAR SEQUÃŠNCIA \n");
 	
 	
 	
