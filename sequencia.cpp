@@ -2,7 +2,7 @@
 	Name: Sequencia de números
 	Copyright: 
 	Author: Pedro Victor
-	Date: 11/03/22 17:02
+	Date: 11/03/22 16:26
 	Description: 
 */
 
