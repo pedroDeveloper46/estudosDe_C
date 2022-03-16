@@ -1,73 +1,144 @@
 /*
-	Name: Sequencia de números
+	Name: Sequencia - Maratona Fatec
 	Copyright: 
 	Author: Pedro Victor
-	Date: 11/03/22 21:44
-	Description: 
+	Date: 16/03/22 01:46
+	Description: Só sei que a sequência não bateu kkkkkkkkkkkkkkk
 */
+
+
 
 
 #include <stdio.h>
 #include <locale.h>
-int numeros[30] = {};
-int tamanho = sizeof(numeros) / sizeof(numeros[0]);
+#include <string.h>
+
+
+
+int vetor[66] = {};
+
+
 void printArray(int array[]);
+bool isEmpty(int vetor[]);
+int retornaInteiroDoArray(int valor);
+void preencheArray();
+int readInput();
+void funcFluxo();
+
+
 int main(){
 	
 	setlocale(LC_ALL,"Portuguese");
 	
 	printf("PROGRAMA PARA CALCULAR SEQUÊNCIA \n");
 	
+	preencheArray();	
 	
+	printArray(vetor);	
 	
-	int soma;
-	
-	int dobro = 0;
-	
-	for(int i = 0; i < 5; i++){
-		numeros[i] = 2;
-	}
-	
-	
-	for(int i = 0; i < tamanho; i++){
-		
-	    if(i < 5){
-			soma += numeros[i];
-		}
-		
-		
-		if(i == 5){
-			numeros[i] = soma;	
-		}
-		
-		if(i >= 6){
-			
-			if(i == 6){
-				numeros[i] = soma + (soma - numeros[0]);
-			}else{
-				numeros[i] += (numeros[i - 1] - 2) + numeros[i - 1];
-			}
-			
-		}
-		
-		
-		
-	}
-	
-    printArray(numeros);
-	
-	
-	
-	
-	
-
-	
+    funcFluxo();
 	
 }
 
 
+void funcFluxo(){
+	
+	char string[10] = "";
+	
+	int n;
+	
+	while(strcmp(string, "N") != 0){
+		
+		do{
+			
+	     	n = readInput();
+		
+		   if(n == -1){
+			printf("Número inválido \n");
+		   }else{
+		   	   printf("%d \n", retornaInteiroDoArray(n));
+	
+		   }
+		   
+	
+		
+	    }while(n == -1);
+	    
+	    printf("Deseja continuar? S/N ");
+	    
+	    scanf("%s", string);
+	    
+	    printf("\n");
+	    
+	    strupr(string);
+	    
+	    if(strcmp(string, "N") == 0){
+	    	printf("Fim da Execução!!!");		}
+		
+	}
+	
+}
+
+int readInput(){
+	
+	int n;
+	
+	printf("Digite um valor que queira listar da sequência: ");
+	
+	scanf("%d", &n);
+	
+	if(n < 0 || n > 65){
+		return -1;
+	}
+	
+	
+	return n;
+	
+}
+
+
+void preencheArray(){
+	
+	if(isEmpty(vetor)){
+		
+		for(int i = 0; i < 5; i++){
+			vetor[i] = 2;
+		}
+	}
+	
+	
+	for(int i = 0; i < 66; i++){
+		if(i >= 5){
+			vetor[i] = (vetor[i -1] + vetor[i - 2] + vetor[i - 3] + vetor[i - 4] + vetor[i - 5]);
+		}
+	}
+}
+
+
+bool isEmpty(int vetor[]){
+	
+	for(int i = 0; i < 5; i++){
+	
+		if(vetor[i] == 0){
+			return true;
+		}
+	
+	}
+	
+	return false;
+}
+
+
+int retornaInteiroDoArray(int valor){
+	return vetor[valor];
+}
+
+
 void printArray(int array[]){
-	for(int i = 0; i < tamanho; i++){
+	
+	for(int i = 0; i < 66; i++){
 		printf("%d ", array[i]);
 	}
+	
+	printf("\n \n");
 }
