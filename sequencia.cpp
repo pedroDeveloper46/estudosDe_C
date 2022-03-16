@@ -15,12 +15,12 @@
 
 
 
-int vetor[66] = {};
+double vetor[66] = {};
 
 
-void printArray(int array[]);
-bool isEmpty(int vetor[]);
-int retornaInteiroDoArray(int valor);
+void printArray(double array[]);
+bool isEmpty(double vetor[]);
+double retornaInteiroDoArray(int valor);
 void preencheArray();
 int readInput();
 void funcFluxo();
@@ -35,8 +35,10 @@ int main(){
 	preencheArray();	
 	
 	printArray(vetor);	
-	
+		
     funcFluxo();
+	
+	
 	
 }
 
@@ -56,7 +58,7 @@ void funcFluxo(){
 		   if(n == -1){
 			printf("Número inválido \n");
 		   }else{
-		   	   printf("%d \n", retornaInteiroDoArray(n));
+		   	   printf("%.0f \n", retornaInteiroDoArray(n));
 	
 		   }
 		   
@@ -115,7 +117,7 @@ void preencheArray(){
 }
 
 
-bool isEmpty(int vetor[]){
+bool isEmpty(double vetor[]){
 	
 	for(int i = 0; i < 5; i++){
 	
@@ -129,15 +131,15 @@ bool isEmpty(int vetor[]){
 }
 
 
-int retornaInteiroDoArray(int valor){
+double retornaInteiroDoArray(int valor){
 	return vetor[valor];
 }
 
 
-void printArray(int array[]){
+void printArray(double array[]){
 	
 	for(int i = 0; i < 66; i++){
-		printf("%d ", array[i]);
+		printf("%.0f ", array[i]);
 	}
 	
 	printf("\n \n");
